@@ -1,9 +1,9 @@
-package mx.uady.repository;
+package mx.uady.sensors.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import mx.uady.model.Data;
+import mx.uady.sensors.model.Data;
 
 @Repository
 public interface DataRepository extends JpaRepository<Data, Integer> {

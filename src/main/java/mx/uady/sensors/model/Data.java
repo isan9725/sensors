@@ -1,4 +1,4 @@
-package mx.uady.model;
+package mx.uady.sensors.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class Data{
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private Integer id;
 
     @Column (name = "value")
@@ -49,6 +49,11 @@ public class Data{
     }
 
     public void setDeviceId(Integer deviceId) {
+        this.deviceId = deviceId;
+    }
+
+    public Data(String value, Integer deviceId) {
+        this.value = value;
         this.deviceId = deviceId;
     }
     

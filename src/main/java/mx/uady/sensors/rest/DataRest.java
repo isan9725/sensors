@@ -1,4 +1,4 @@
-package mx.uady.rest;
+package mx.uady.sensors.rest;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
-import mx.uady.model.Data;
-import mx.uady.repository.DataRepository;
-import mx.uady.service.DataService;
+import mx.uady.sensors.model.Data;
+import mx.uady.sensors.repository.DataRepository;
+import mx.uady.sensors.service.DataService;
 
 @RestController
 public class DataRest {
@@ -22,14 +22,14 @@ public class DataRest {
     private DataService dataService;
 
     
-    // @GetMapping("/alumno")
-    // public ResponseEntity< List<Alumno> > prueba() {
-    //     List<Alumno> alumnos = alumnoService.getAlumnos();
-    //     return ResponseEntity.ok(alumnos);
-    // } 
+    @GetMapping("/data")
+    public ResponseEntity< List<Data> > prueba() {
+        List<Data> alumnos = dataService.getData();
+        return ResponseEntity.ok(alumnos);
+    } 
 
-    @PostMapping("/alumno")
-    public ResponseEntity<Data> crearAlumno(@RequestBody Data data) {
+    @PostMapping("/data")
+    public ResponseEntity<Data> crearData(@RequestBody Data data) {
         Data a = dataService.crear(data);
         return ResponseEntity.status(HttpStatus.CREATED).body(a);
     }
